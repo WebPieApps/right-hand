@@ -2,17 +2,21 @@
   margin: 0;
 }
 
+:root {
+  --primary-color: #4caf50;
+  --secondary-color: #f8f3f3;
+  --bg-color: #ffdad9;
+}
+
 .app-init {
 
 }
 
-header.app-header {
-  padding: 1rem;
-  background: #cecece;
-}
-
-.content-holder-section {
-
+h1 {
+  border-bottom: 1px solid;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  color: #616665;
 }
 
 .container {
@@ -20,8 +24,14 @@ header.app-header {
   margin: 0 auto;
 }
 
+
+.content-holder-section {
+  margin-top: 2rem;
+}
+
+
 .footer {
-  background: #f8f3f3;
+  background: var(--secondary-color);
   padding: 1rem;
   position: absolute;
   width: 100%;

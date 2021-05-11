@@ -1,0 +1,53 @@
+.main-navigation {
+
+}
+
+header.app-header {
+    padding: 1rem;
+    background:  var(--bg-color);
+    /* padding-bottom: 0; */
+    border-radius: 0 0 0 12%;
+  }
+
+a {
+    text-decoration: none;
+}
+
+.main-navigation ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #616665;
+    background: white;
+    padding: 0.6rem;
+}
+
+.logo .highlight-letter {
+    color: var(--primary-color);
+    /* font-weight: 700; */
+    font-size: 2.5rem;
+}
+
+.main-navigation ul li {
+    width: 30%;
+}
+
+.main-navigation ul li a {
+    width: 100%;
+    background: #b9b6b6;
+    display: block;
+    padding: 5px 1rem;
+    color: #646464;
+}
+
+
+.main-navigation ul li:hover a,
+.main-navigation ul li a.active {
+    background: #4caf50;
+    color: #fff;
+}

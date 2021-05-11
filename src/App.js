@@ -1,9 +1,17 @@
 import React, { Component } from "react";
+import { Switch, Route } from "react-router-dom";
+
 import './App.css';
 // import RandomUsers from "./components/random_users/RandomUsers";
-import FindRepo from "./components/github_repo/FindRepo";
 import Header from "./components/global/Header";
 import Footer from "./components/global/Footer";
+
+import Home from "./components/Home/Home";
+
+import Github from "./components/github/Github";
+import About from "./components/about/About";
+import Contact from "./components/contact/Contact";
+
 class App extends Component {
 
   constructor(props) {
@@ -21,65 +29,39 @@ class App extends Component {
 
   // load life cycle
   componentDidMount() {
-    //const apiUrl = 'https://api.github.com/users/hidaytrahman/repos';
-    // const apiUrl = 'http://localhost:4000/data';
-    // fetch(apiUrl)
-    //   .then(response => response.json())
-    //   .then((data) => {
-    //     console.log('data', data);
-    //     this.setState({
-    //       repos: data
-    //     });
-    //   });
   }
-
-  // get git repo
-  getRepos = (username) => {
-    console.log('Username ', username);
-
-    let activeUsername = username;
-    (username) ? activeUsername = username : activeUsername = 'hidaytrahman';
-
-    const apiUrl = `https://api.github.com/users/${activeUsername}/repos`;
-
-    const localUrl = 'http://localhost:4000/data';
-    fetch(apiUrl)
-      .then(response => response.json())
-      .then((data) => {
-        console.log('data', data);
-        this.setState({
-          repos: data
-        });
-      });
-  }
-
-
-  getRepoDetails(id) {
-    console.log('id ', id);
-    const localUrl = `http://localhost:4000/data/${id}`;
-
-    fetch(localUrl)
-      .then(response => response.json())
-      .then((data) => {
-        console.log('data', data);
-        // this.setState({
-        //   repoDetails: data
-        // });
-      });
-  }
-
 
   render() {
+
+    const extraProps = { color: 'red' }
+
     return (
       <main className="app-init">
 
         <Header />
         <section className="content-holder-section container">
 
-          <FindRepo 
-            clickHandler={this.getRepos}  
-            username={this.state.username}
-            repos={this.state.repos}/>
+
+
+          <Switch>
+            <Route exact path='/' component={Home} />
+            {/* both /roster and /roster/:number begin with /roster */}
+            <Route path='/github' component={Github} />
+
+            <Route path='/about' component={About} />
+
+            <Route path='/contact' render={(props) => (
+              <Contact {...props} data={extraProps} />
+            )} />
+
+
+            {/* <Route path='/page' children={(props) => (
+              props.match
+                ? <Page {...props} />
+                : <EmptyPage {...props} />
+            )} /> */}
+
+          </Switch>
 
         </section>
         {/* Content holder section end here */}
