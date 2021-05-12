@@ -1,5 +1,5 @@
 import React from "react";
-import FindRepo from "../github_repo/FindRepo";
+import FindRepo from "./FindRepo";
 
 export default class Github extends React.Component {
 

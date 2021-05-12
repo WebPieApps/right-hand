@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import "./Header.css";
 
 const Header = () => {
@@ -13,11 +13,11 @@ const Header = () => {
                 </div>
                 <nav className="main-navigation">
                 <ul>
-                    <li><Link to='/' className="active">Home</Link></li>
-                    <li><Link to='/about'>about</Link></li>
-                    <li><Link to='/github'>github</Link></li>
-                    <li><Link to='/random-user'>Random Users</Link></li>
-                    <li><Link to='/contact'>Contact</Link></li>
+                    <li><NavLink to='/' exact  activeClassName="active">Home</NavLink></li>
+                    <li><NavLink to='/about' activeClassName="active">about</NavLink></li>
+                    <li><NavLink to='/github' activeClassName="active">github</NavLink></li>
+                    <li><NavLink to='/random-user' activeClassName="active">Random Users</NavLink></li>
+                    <li><NavLink to='/contact' activeClassName="active">Contact</NavLink></li>
                 </ul>
             </nav>
             </div>
