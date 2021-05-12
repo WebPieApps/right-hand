@@ -66,6 +66,15 @@ props.myName; - this will have the "hidayt"
 
 ```
 
+### Hooks
+
+#### state
+
+#### cycle
+
+### router
+
+
 
 ### Events and Method Handling
 * you can use normal onClick of javascript and html

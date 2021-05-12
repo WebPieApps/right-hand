@@ -11,6 +11,8 @@ import Home from "./components/Home/Home";
 import Github from "./components/github/Github";
 import About from "./components/about/About";
 import Contact from "./components/contact/Contact";
+import CDN from "./components/CDN/CDN";
+import LibraryDetails from "./components/CDN/LibraryDetails";
 
 class App extends Component {
 
@@ -47,6 +49,19 @@ class App extends Component {
             <Route exact path='/' component={Home} />
             {/* both /roster and /roster/:number begin with /roster */}
             <Route path='/github' component={Github} />
+
+            <Route path='/cdn' render={(props) => (
+              <CDN {...props} data={{ title: 'Get CDN of any libraries' }} />
+            )} />
+
+            <Route path='/details' render={(props) => (
+              <LibraryDetails {...props} data={{ title: 'Get details of any libraries' }} />
+            )} />
+
+            <Route path='/lib/:name' component={LibraryDetails} />
+
+
+
 
             <Route path='/about' component={About} />
 
