@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
+import Loader from "react-loader-spinner";
+
 import { copyToClipboard } from "../../core/Utils";
 
 import "./CDN.css";
@@ -8,7 +10,11 @@ const CDN = (props) => {
 
     const [libraries, setLibrary] = useState([]);
 
+    const [loader, setLoader] = useState(true);
+
     const [title, setTile] = React.useState();
+
+    const [spinnerLoading, setSpinnerLoading] = useState(true);
 
     // component load lifecycle for title
     useEffect(() => {
@@ -19,6 +25,8 @@ const CDN = (props) => {
 
     // life cycle for set libraries
     useEffect(() => {
+
+        console.log(' loader ', loader);
 
         // sample response has been trimmed to remove items in the results array.
         // https://api.cdnjs.com/libraries?search=vue&fields=filename,description,version,github&limit=3
@@ -44,22 +52,33 @@ const CDN = (props) => {
             .then(response => response.json())
             .then(data => {
                 console.log(' data ', data);
-                setLibrary(data.results)
+                setLibrary(data.results);
+                setLoader(false);
+                setSpinnerLoading(false);
             });
     }, []);
 
     // style
-    const grayStyle = {
-        fontSize: '12px',
-        color: '#555555'
-    }
+    // const grayStyle = {
+    //     fontSize: '12px',
+    //     color: '#555555'
+    // }
 
 
     return (
         <section className="cdn-wrapper">
-            <h1>CDN Hub </h1>
 
-            <h3>Libraries</h3>
+            <h1>CDN Hub</h1>
+            <Loader
+                type="BallTriangle"
+                color="#00BFFF"
+                height={100}
+                width={100}
+                visible={spinnerLoading}
+            />
+
+            {(!spinnerLoading) ? <h3>Libraries</h3> : "" }
+
             <div className="row">
                 {
                     libraries.map((library, index) => {

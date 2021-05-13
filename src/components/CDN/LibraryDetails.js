@@ -6,6 +6,7 @@ import "./CodeStyle.css";
 const LibraryDetails = (props) => {
     const [library, setLibrary] = useState([]);
     const [assets, setAsset] = useState([]);
+    const [keywords, setkeyword] = useState([]);
 
     let libraryName = props.match.params.name;
 
@@ -16,6 +17,7 @@ const LibraryDetails = (props) => {
                 //console.log(' data ', data);
                 setLibrary(data)
                 setAsset(data.assets);
+                setkeyword(data.keywords);
             })
     }, [libraryName]);
 
@@ -25,8 +27,19 @@ const LibraryDetails = (props) => {
                 <div className="jumbotron">
                     <h2>{libraryName}</h2>
                     <p>{library.description}</p>
+                    <div className="keywords">
+                        {
+                            keywords.map((item, index) => {
+                                return <span className="badge badge-warning m-1" key={index}>{item}</span>
+                            })
+                        }
+
+                    </div>
                 </div>
             </div>
+
+
+
             <section>
 
                 <details>

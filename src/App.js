@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { Switch, Route } from "react-router-dom";
 
 import './App.css';
@@ -14,66 +14,53 @@ import Contact from "./components/contact/Contact";
 import CDN from "./components/CDN/CDN";
 import LibraryDetails from "./components/CDN/LibraryDetails";
 
-class App extends Component {
+const App = () => {
+  const extraProps = { color: 'red' }
 
-  constructor(props) {
-    super(props);
+  return (
+    <main className="app-init">
+     
+      <Header />
+      <section className="content-holder-section container">
 
-    // base states
-    this.state = {
-      a: ""
-    }
-  }
+        <Switch>
+          <Route exact path='/' component={Home} />
+          {/* both /roster and /roster/:number begin with /roster */}
+          <Route path='/github' component={Github} />
 
-  render() {
+          <Route path='/cdn' render={(props) => (
+            <CDN {...props} data={{ title: 'Get CDN of any libraries' }} />
+          )} />
 
-    const extraProps = { color: 'red' }
+          <Route path='/details' render={(props) => (
+            <LibraryDetails {...props} data={{ title: 'Get details of any libraries' }} />
+          )} />
 
-    return (
-      <main className="app-init">
+          <Route path='/lib/:name' component={LibraryDetails} />
 
-        <Header />
-        <section className="content-holder-section container">
+          <Route path='/about' component={About} />
 
-          <Switch>
-            <Route exact path='/' component={Home} />
-            {/* both /roster and /roster/:number begin with /roster */}
-            <Route path='/github' component={Github} />
+          <Route path="/random-user" component={RandomUsers} />
 
-            <Route path='/cdn' render={(props) => (
-              <CDN {...props} data={{ title: 'Get CDN of any libraries' }} />
-            )} />
-
-            <Route path='/details' render={(props) => (
-              <LibraryDetails {...props} data={{ title: 'Get details of any libraries' }} />
-            )} />
-
-            <Route path='/lib/:name' component={LibraryDetails} />
-
-            <Route path='/about' component={About} />
-
-            <Route path="/random-user" component={RandomUsers} />
-
-            <Route path='/contact' render={(props) => (
-              <Contact {...props} data={extraProps} />
-            )} />
+          <Route path='/contact' render={(props) => (
+            <Contact {...props} data={extraProps} />
+          )} />
 
 
-            {/* <Route path='/page' children={(props) => (
+          {/* <Route path='/page' children={(props) => (
               props.match
                 ? <Page {...props} />
                 : <EmptyPage {...props} />
             )} /> */}
 
-          </Switch>
+        </Switch>
 
-        </section>
-        {/* Content holder section end here */}
+      </section>
+      {/* Content holder section end here */}
 
-        <Footer />
-      </main>
-    )
-  }
+      <Footer />
+    </main>
+  )
 }
 
 export default App;

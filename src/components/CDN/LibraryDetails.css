@@ -47,7 +47,7 @@ details summary:after {
 }
 
 details summary:before {
-    content: "\f107";
+    content: "\f001";
     padding-right: 1.5rem;
 }
 
