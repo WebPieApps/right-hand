@@ -21,16 +21,8 @@ class App extends Component {
 
     // base states
     this.state = {
-      something: true,
-      randomUsers: [],
-      repos: [],
-      repoDetails: null,
-      username: ""
+      a: ""
     }
-  }
-
-  // load life cycle
-  componentDidMount() {
   }
 
   render() {
@@ -42,8 +34,6 @@ class App extends Component {
 
         <Header />
         <section className="content-holder-section container">
-
-
 
           <Switch>
             <Route exact path='/' component={Home} />
@@ -59,9 +49,6 @@ class App extends Component {
             )} />
 
             <Route path='/lib/:name' component={LibraryDetails} />
-
-
-
 
             <Route path='/about' component={About} />
 

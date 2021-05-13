@@ -1,0 +1,40 @@
+.gatsby-highlight {
+    background: rgb(40, 44, 52);
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    overflow: auto;
+    tab-size: 1.5em;
+}
+
+.gatsby-highlight>code[class*="gatsby-code-"],
+.gatsby-highlight>pre[class*="gatsby-code-"],
+.gatsby-highlight>pre.prism-code {
+    margin: 1rem;
+    font-size: 14px;
+    line-height: 20px;
+    white-space: pre-wrap;
+    word-break: break-word;
+    height: auto !important;
+}
+
+.token.tag {
+    color: rgb(252, 146, 158);
+}
+
+.token.attr-name {
+    color: rgb(197, 165, 197);
+}
+
+.token.attr-value {
+    color: rgb(141, 200, 145);
+}
+
+.token.punctuation {
+    color: rgb(136, 198, 190);
+}
+
+.code-controls {
+    position: absolute;
+    right: 0;
+    top: 0;
+}

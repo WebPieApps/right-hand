@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
+import { copyToClipboard } from "../../core/Utils";
 
+import "./CDN.css";
 
 const CDN = (props) => {
 
@@ -36,9 +38,9 @@ const CDN = (props) => {
         // https://api.cdnjs.com/libraries/backbone.js/tutorials?fields=name,modified
 
         // https://api.cdnjs.com/libraries/vue/tutorials/wtf-is-vuex
-        
-        
-        fetch("https://api.cdnjs.com/libraries/?limit=5")
+
+
+        fetch("https://api.cdnjs.com/libraries/?limit=10")
             .then(response => response.json())
             .then(data => {
                 console.log(' data ', data);
@@ -52,24 +54,32 @@ const CDN = (props) => {
         color: '#555555'
     }
 
+
     return (
         <section className="cdn-wrapper">
             <h1>CDN Hub </h1>
 
-            <h2>Libraries</h2>
+            <h3>Libraries</h3>
             <div className="row">
                 {
                     libraries.map((library, index) => {
                         return (
-                            <div className="col-sm-6 col-md-4" key={index}>
+                            <div className="col-sm-6 col-md-4 col-lg-3 mb-4" key={index}>
                                 <div className="card">
                                     <div className="card-body">
                                         <h5 className="card-title">{library.name}</h5>
-                                        <p className="card-text" style={grayStyle}>{library.latest}</p>
-                                        <div className="d-flex justify-content-between">
+                                        <div className="copy-area">
+                                            <div id="inviteCode" className="invite-page">
+                                                <input id="link" value={library.latest} readOnly />
+                                                <div id="copy" onClick={(e) => copyToClipboard(e)}>
+                                                    <i className="fa fa-clipboard" aria-hidden="true"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="d-flex justify-content-between row">
                                             <a href={library.latest} target="_blank" rel="noreferrer" className="btn btn-primary" >Latest Download</a>
-                                            
-                                            <Link to={'/lib/'+library.name}><button className="btn btn-secondary" >Description</button></Link>
+
+                                            <Link to={'/lib/' + library.name}><button className="btn btn-secondary" >Description</button></Link>
                                         </div>
 
                                     </div>

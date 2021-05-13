@@ -37,6 +37,12 @@ const RandomUsers = () => {
         <section className="random-user-wrapper">
             <h1>Get Random User</h1>
 
+            <div className="d-flex justify-content-center">
+                <button className="btn btn-primary btn-block" onClick={() => changeUser()}>
+                    Change User
+                    </button>
+            </div>
+
             {profile.map((user, index) => (
                 <section className="profile_container" key={index}>
                     <div className="wraps">
@@ -65,11 +71,7 @@ const RandomUsers = () => {
             ))}
 
 
-            <div className="d-flex justify-content-center">
-                <button className="btn btn-primary" onClick={() => changeUser()}>
-                    Change User
-                    </button>
-            </div>
+
 
 
         </section>

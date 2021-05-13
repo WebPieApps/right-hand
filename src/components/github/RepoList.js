@@ -1,11 +1,10 @@
 import "./GithubRepo.css";
 import { formatDate } from "../../core/Utils";
-import common from '../../core/Comman';
 import RepoDetails from "./RepoDetails";
 
 const RepoList = (props) => {
     console.log('props ', props);
-    const { repos, rahman } = props;
+    const { repos } = props;
 
     // show notification if repo is empty or null
     if (!repos || repos.length === 0) {
