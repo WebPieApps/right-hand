@@ -23,6 +23,11 @@
 }
 
 
+.custom-loader {
+  display: flex;
+  justify-content: center;
+}
+
 h1 {
   border-bottom: 1px solid;
   padding-bottom: 0.5rem;

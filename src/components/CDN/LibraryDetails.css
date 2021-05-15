@@ -43,16 +43,15 @@ details[open] summary {
 
 details summary:before,
 details summary:after {
-    font-family: "FontAwesome";
 }
 
 details summary:before {
-    content: "\f001";
+    content: ">";
     padding-right: 1.5rem;
 }
 
 details[open] summary:before {
-    content: "\f106";
+    content: "^";
 }
 
 details[open] {
