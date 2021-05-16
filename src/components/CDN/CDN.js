@@ -120,7 +120,6 @@ const CDN = (props) => {
 
     return (
         <section className="cdn-wrapper">
-
             <h1>CDN Hub</h1>
 
             {loadLibraryDOM()}
