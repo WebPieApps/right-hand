@@ -35,7 +35,7 @@ const LibraryDetails = (props) => {
     useEffect(() => {
         document.title = libraryName.replace('-', ' ').toUpperCase();
     }, [title]);
-
+    
 
     return (
         <section className="library-details-wrapper">
@@ -140,42 +140,28 @@ const LibraryDetails = (props) => {
                             </details>
 
 
-                            <details>
-                                <summary>Additional Information</summary>
-                                <div>
-                                    <p>Lorem ipsum dolor sit amet, eu alia suscipit mei.</p>
-                                    <ol>
-                                        <li>Cash on hand: $500.00</li>
-                                        <li>Current invoice: $75.30</li>
-                                        <li>Due date: 5/6/19</li>
-                                    </ol>
-                                    <p>Lorem ipsum dolor sit amet, eu alia suscipit mei.</p>
-                                    <div>
-                                        <table>
-                                            <thead>
-                                                <tr>
-                                                    <th>Firstname</th>
-                                                    <th>Lastname</th>
-                                                    <th>Age</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Jill</td>
-                                                    <td>Smith</td>
-                                                    <td>50</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Eve</td>
-                                                    <td>Jackson</td>
-                                                    <td>94</td>
-                                                </tr>
-                                            </tbody>
+                            {
+                                library && library.tutorials && library.tutorials.length > 0 ?
+                                    <details>
+                                        <summary>Tutorials</summary>
 
-                                        </table>
-                                    </div>
-                                </div>
-                            </details>
+                                        <div>
+                                            {
+                                                library.tutorials.map((item, index) => {
+                                                    return (
+                                                        <div>
+                                                            <p>Lorem ipsum dolor sit amet, eu alia suscipit mei.</p>
+                                                        </div>
+                                                    )
+                                                })
+                                            }
+
+                                        </div>
+                                    </details>
+                                    : null
+                            }
+
+
 
                         </section>
                         // Tabular section end here

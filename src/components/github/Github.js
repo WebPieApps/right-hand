@@ -1,24 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import FindRepo from "./FindRepo";
 
-export default class Github extends React.Component {
+const Github = () => {
 
-    constructor(props) {
-        super(props);
+    const [repos, setRepos] = useState([]);
+    const [spinnerLoading, setSpinnerLoading] = useState(true);
 
-        console.log('github loaded ', props)
-        // base states
-        this.state = {
-            something: true,
-            repos: [],
-            repoDetails: null,
-            username: ""
-        }
-    }
-
+    useEffect(() => {
+        setSpinnerLoading(false);
+    }, []);
 
     // get git repo
-    getRepos = (username) => {
+    const getRepos = (username) => {
+        setSpinnerLoading(true);
         console.log('Username ', username);
 
         let activeUsername = username;
@@ -30,38 +24,23 @@ export default class Github extends React.Component {
         fetch(apiUrl)
             .then(response => response.json())
             .then((data) => {
-                console.log('data', data);
-                this.setState({
-                    repos: data
-                });
+                setRepos(data);
+                setSpinnerLoading(false);
             });
     }
 
 
-    
-  getRepoDetails(id) {
-    console.log('id ', id);
-    const localUrl = `http://localhost:4000/data/${id}`;
 
-    fetch(localUrl)
-      .then(response => response.json())
-      .then((data) => {
-        console.log('data', data);
-        // this.setState({
-        //   repoDetails: data
-        // });
-      });
-  }
+    return (
+        <section className="github-feature-wrapper">
+            <h1>Github </h1>
+            <FindRepo
+                clickHandler={getRepos}
+                spinnerLoading= {spinnerLoading}
+                repos={repos} />
+        </section>
+    )
 
-    render() {
-        return (
-            <section className="github-feature-wrapper">
-                <h1>Github </h1>
-                <FindRepo
-                    clickHandler={this.getRepos}
-                    username={this.state.username}
-                    repos={this.state.repos} />
-            </section>
-        )
-    }
 }
+
+export default Github;

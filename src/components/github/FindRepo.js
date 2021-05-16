@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import Loader from "react-loader-spinner";
 import RepoList from "./RepoList";
 
 const FindRepo = (props) => {
-    const [title, setTitle] = useState('');
-
+    const [title, setTitle] = useState();
 
     return (
         <section className="repo-wrapper">
@@ -21,7 +21,20 @@ const FindRepo = (props) => {
                 </div>
             </div>
 
-            <RepoList repos={props.repos}/>
+            {
+                props.spinnerLoading ?
+                    <Loader
+                        type="BallTriangle"
+                        color="#00BFFF"
+                        height={200}
+                        width={200}
+                        className="loader"
+                        visible={true}
+                    />
+                    : <RepoList repos={props.repos} />
+            }
+
+
 
         </section>
 
