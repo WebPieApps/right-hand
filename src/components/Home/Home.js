@@ -1,7 +1,16 @@
+import "./Home.css";
+
 const Home = () => {
     return (
         <div className="home-wrapper">
-            <h1>Welcome to Right hand</h1>
+                <main>
+                    <section>
+                        <h3>Learn and Learn</h3>
+                        <hr />
+                        <h2>We help you to <span class="change-text">  </span></h2>
+                    </section>
+                </main>
+
         </div>
     )
 }

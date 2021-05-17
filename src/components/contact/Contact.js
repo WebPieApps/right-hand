@@ -4,7 +4,7 @@ const Contact = (props) => {
     return(
         <section className="contact-wrapper">
             <h1>Contact Us</h1>
-            {props.data.color}
+            Form with email send soon...
         </section>
     )
 }

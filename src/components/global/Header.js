@@ -14,7 +14,7 @@ const Header = () => {
                 <nav className="main-navigation">
                 <ul>
                     <li><NavLink to='/' exact  activeClassName="active">Home</NavLink></li>
-                    <li><NavLink to='/about' activeClassName="active">about</NavLink></li>
+                    {/* <li><NavLink to='/about' activeClassName="active">about</NavLink></li> */}
                     <li><NavLink to='/github' activeClassName="active">github</NavLink></li>
                     <li><NavLink to='/cdn' activeClassName="active">CDN Hub</NavLink></li>
                     <li><NavLink to='/random-user' activeClassName="active">Random Users</NavLink></li>
