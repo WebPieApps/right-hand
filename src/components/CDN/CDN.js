@@ -9,9 +9,6 @@ import "./CDN.css";
 const CDN = (props) => {
 
     const [libraries, setLibrary] = useState([]);
-
-    const [loader, setLoader] = useState(true);
-
     const [title, setTile] = React.useState();
 
     const [spinnerLoading, setSpinnerLoading] = useState(true);
@@ -21,42 +18,6 @@ const CDN = (props) => {
         setTile(props.data.title);
         document.title = title;
     }, [title]);
-
-
-    // life cycle for set libraries
-    useEffect(() => {
-
-        console.log(' loader ', loader);
-
-        // sample response has been trimmed to remove items in the results array.
-        // https://api.cdnjs.com/libraries?search=vue&fields=filename,description,version,github&limit=3
-
-        // https://api.cdnjs.com/libraries?search=jquery
-
-        // https://api.cdnjs.com/libraries/vue?fields=name,author,description,filename,sri,version,repository,autoupdate
-
-        // https://api.cdnjs.com/libraries/jquery?fields=assets,versions
-
-        // https://api.cdnjs.com/libraries/jquery/3.5.1
-
-        // https://api.cdnjs.com/libraries/vue/2.6.11?fields=files,sri
-
-        // https://api.cdnjs.com/libraries/vue/tutorials
-
-        // https://api.cdnjs.com/libraries/backbone.js/tutorials?fields=name,modified
-
-        // https://api.cdnjs.com/libraries/vue/tutorials/wtf-is-vuex
-
-
-        fetch("https://api.cdnjs.com/libraries/?limit=10")
-            .then(response => response.json())
-            .then(data => {
-                console.log(' data ', data);
-                setLibrary(data.results);
-                setLoader(false);
-                setSpinnerLoading(false);
-            });
-    }, []);
 
     // style
     // const grayStyle = {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./GithubRepo.css";
 import { formatDate } from "../../core/Utils";
 import RepoDetails from "./RepoDetails";
@@ -16,7 +16,7 @@ const RepoList = (props) => {
     }
 
     const openDetails = (repo) => {
-        const parentElement = document.querySelector("#repo-list");
+        //const parentElement = document.querySelector("#repo-list");
 
         //parentElement.style.display= 'none';
 

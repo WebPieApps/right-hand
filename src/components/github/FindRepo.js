@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Loader from "react-loader-spinner";
 import RepoList from "./RepoList";
 
@@ -11,12 +11,12 @@ const FindRepo = (props) => {
                 <div className="row align-items-center">
                     <div className="col-auto">
                         <input type="text" className="form-control" placeholder="Enter your github username"
-                            onBlur={event => setTitle(event.target.value)} />
+                            onChange={event => setTitle(event.target.value)} />
                     </div>
                     <div className="col-auto">
 
-                        <button type="button" className="btn btn-primary"
-                            onClick={() => props.clickHandler(title)}>Fetch</button>
+                        <button type="button" className="btn btn-primary" disabled={!title}
+                            onClick={() => props.clickHandler(title)}>{!title ? '< Enter github username' : 'Fetch'}</button>
                     </div>
                 </div>
             </div>
