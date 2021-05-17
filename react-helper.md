@@ -80,4 +80,9 @@ props.myName; - this will have the "hidayt"
 * you can use normal onClick of javascript and html
 
 
+### Deployements
+
+- gh-pages - install this package as a dev dependencies for deploy app on github page
+- tutorial link - 
+
 to be continued...
