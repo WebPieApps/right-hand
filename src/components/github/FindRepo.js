@@ -16,7 +16,7 @@ const FindRepo = (props) => {
                     <div className="col-auto">
 
                         <button type="button" className="btn btn-primary" disabled={!title}
-                            onClick={() => props.clickHandler(title)}>{!title ? '< Enter github username' : 'Fetch'}</button>
+                            onClick={() => props.getProfileHandler(title)}>{!title ? '< Enter github username' : 'Find Me'}</button>
                     </div>
                 </div>
             </div>
