@@ -1,10 +1,8 @@
 # right-hand
 
 
-
 ### Features & Improvements
 #### Github
-- Profile confirmation (before processing with fetch repo)
 - Error handling
 - null check
 - Filters
@@ -15,3 +13,11 @@
     * By size
     * by stars
     * by forks
+
+### CDN
+ - Find library
+
+
+### Router / Nested router implementation
+
+ ## Documentation

@@ -7,7 +7,7 @@ const Home = () => {
                     <section>
                         <h3>Learn and Learn</h3>
                         <hr />
-                        <h2>We help you to <span class="change-text">  </span></h2>
+                        <h2>We help you to <span className="change-text">  </span></h2>
                     </section>
                 </main>
 

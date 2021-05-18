@@ -60,3 +60,8 @@ h5 {
 }
 
 .footer p {}
+
+::selection {
+  color: #fff;
+  background: var(--primary-color);
+}

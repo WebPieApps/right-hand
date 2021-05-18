@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { copyToClipboard } from "../../core/Utils";
+import { copyCodeToClipboard } from "../../core/Utils";
 
 const LibraryList = (props) => {
     return (
@@ -13,8 +13,8 @@ const LibraryList = (props) => {
                                     <h5 className="card-title">{library.name}</h5>
                                     <div className="copy-area">
                                         <div id="inviteCode" className="invite-page">
-                                            <input id="link" value={library.latest} readOnly />
-                                            <div id="copy" onClick={(e) => copyToClipboard(e)}>
+                                            <input className="code-input" value={library.latest} readOnly />
+                                            <div id="copy" onClick={(e) => copyCodeToClipboard(e)}>
                                                 <i className="fa fa-clipboard" aria-hidden="true"></i>
                                             </div>
                                         </div>
