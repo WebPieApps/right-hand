@@ -85,5 +85,6 @@ props.myName; - this will have the "hidayt"
 - gh-pages - install this package as a dev dependencies for deploy app on github page
 - tutorial link - 
 - add commands
+-  npm run deploy - it will deploy app on github page - changes should be there in main branch
 
 to be continued...
