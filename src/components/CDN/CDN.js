@@ -3,11 +3,13 @@ import Loader from "react-loader-spinner";
 import "./CDN.css";
 
 import LibraryList from "./LibraryList";
+import FindPackage from "./FindPackage";
 
 const CDN = (props) => {
 
     const [libraries, setLibrary] = useState([]);
     const [title, setTile] = React.useState();
+    const [pkg, setPkg] = useState();
 
     const [spinnerLoading, setSpinnerLoading] = useState(true);
 
@@ -55,6 +57,18 @@ const CDN = (props) => {
             });
     }, []);
 
+
+    const findPackageHandler = (searchInput) => {
+        setSpinnerLoading(true);
+        fetch(`https://api.cdnjs.com/libraries?search=${searchInput}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(' data package', data);
+            setPkg(data.results);
+            setSpinnerLoading(false);
+        });
+    }
+
     const loadLibraryDOM = () => {
         if (spinnerLoading) {
             return (
@@ -83,7 +97,13 @@ const CDN = (props) => {
     return (
         <section className="cdn-wrapper">
             <h1>CDN Hub</h1>
+            <section className="search-package-wrapper">
+                <FindPackage
+                    findPackageHandler={findPackageHandler}
+                    spinnerLoading={spinnerLoading}
+                    pkg={pkg} />
 
+            </section>
             {loadLibraryDOM()}
 
         </section >

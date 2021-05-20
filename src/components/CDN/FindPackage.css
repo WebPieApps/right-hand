@@ -1,0 +1,14 @@
+.find-package-list {
+    
+}
+
+.custom-form {
+    border: 2px dashed #4caf50;
+    padding: 0.5rem;
+    background: #607d8b;
+}
+
+.find-package-list .card{
+
+    background: #fff9c5;
+}
