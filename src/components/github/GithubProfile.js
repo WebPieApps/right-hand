@@ -6,7 +6,7 @@ const GithubProfile = (props) => {
                 <div className="modal-content">
                     <div className="modal-header">
                         <h5 className="modal-title" id="exampleModalLongTitle">Hi {props.profile.name}</h5>
-                        <button type="button" className="close" onClick={props.closePopup} aria-label="Close">
+                        <button type="button" className="close" onClick={props.closePopupHandler} aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -29,7 +29,7 @@ const GithubProfile = (props) => {
                         </div>
                     </div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-secondary" onClick={props.closePopup}>Not you?</button>
+                        <button type="button" className="btn btn-secondary" onClick={props.closePopupHandler}>Not you?</button>
                         <button type="button" className="btn btn-primary" onClick={() => props.getRepoHandler(props.profile.login)}>Fetch my Repo</button>
                     </div>
                 </div>

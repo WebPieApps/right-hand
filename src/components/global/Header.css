@@ -1,56 +1,90 @@
 .main-navigation {
-
+  width: 70%;
 }
 
 header.app-header {
-    padding: 1rem;
-    /* background:  var(--bg-color); */
-    /* padding-bottom: 0; */
-    border-radius: 0 0 0 12%;
-    border-bottom: 4px solid #4caf4f;
-    box-shadow: 0 4px 6px #b1a2a2;
-  }
+  padding: 1rem;
+  /* background:  var(--bg-color); */
+  /* padding-bottom: 0; */
+  border-radius: 0 0 0 12%;
+  border-bottom: 4px solid #4caf4f;
+  box-shadow: 0 4px 6px #b1a2a2;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .main-navigation ul {
-    display: flex;
-    list-style-type: none;
-    padding: 0;
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  align-items: center;
 }
 
 .logo {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #616665;
-    background: white;
-    padding: 0.6rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #616665;
+  background: white;
+  padding: 0 0.6rem;
 }
 
 .logo .highlight-letter {
-    color: var(--primary-color);
-    /* font-weight: 700; */
-    font-size: 2.5rem;
+  color: var(--primary-color);
+  /* font-weight: 700; */
+  font-size: 2.5rem;
 }
 
 .main-navigation ul li {
-    width: 30%;
+  width: 30%;
 }
 
 .main-navigation ul li a {
-    width: 100%;
-    background: #fbf8f8;
-    display: block;
-    padding: 5px 1rem;
-    color: #646464;
+  width: 100%;
+  background: #fbf8f8;
+  display: block;
+  padding: 5px 1rem;
+  color: #646464;
 }
-
 
 .main-navigation ul li:hover a,
 .main-navigation ul li a.active {
-    background: #4caf50;
-    color: #fff;
-    border-radius: 10px;
+  background: #4caf50;
+  color: #fff;
+  border-radius: 10px;
+}
+
+/* Responsive */
+@media screen and (max-width: 991px) {
+  .main-navigation ul {
+    justify-content: flex-end;
+  }
+  .main-navigation ul li {
+    width: auto;
+  }
+  .main-navigation ul li a {
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header-container {
+    flex-direction: column;
+  }
+  .main-navigation {
+    width: auto;
+    margin: 0 auto;
+  }
+  .main-navigation ul {
+    flex-wrap: wrap;
+  }
+  .main-navigation ul li {
+    margin: 2px;
+  }
 }

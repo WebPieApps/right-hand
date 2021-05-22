@@ -114,7 +114,7 @@ const LibraryDetails = (props) => {
                                             <input type="text" className="d-none" readOnly
                                                 value={`<script src="https://cdnjs.cloudflare.com/ajax/libs/${library.name}/'${asset.version}'/'${asset.files[0]}" crossorigin="anonymous"></script>`} />
                                             <button className="btn btn-secondary" title="Copy code" onClick={(e) => copyCodeToClipboard(e)}>
-                                                <i className="fa fa-code" aria-hidden="true"></i>
+                                                Copy
                                             </button>
                                         </div>
                                     </div>
