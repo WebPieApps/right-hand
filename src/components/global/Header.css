@@ -4,9 +4,11 @@
 
 header.app-header {
     padding: 1rem;
-    background:  var(--bg-color);
+    /* background:  var(--bg-color); */
     /* padding-bottom: 0; */
     border-radius: 0 0 0 12%;
+    border-bottom: 4px solid #4caf4f;
+    box-shadow: 0 4px 6px #b1a2a2;
   }
 
 a {
@@ -39,7 +41,7 @@ a {
 
 .main-navigation ul li a {
     width: 100%;
-    background: #b9b6b6;
+    background: #fbf8f8;
     display: block;
     padding: 5px 1rem;
     color: #646464;
@@ -50,4 +52,5 @@ a {
 .main-navigation ul li a.active {
     background: #4caf50;
     color: #fff;
+    border-radius: 10px;
 }
